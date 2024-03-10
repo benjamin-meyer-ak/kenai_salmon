@@ -4,6 +4,13 @@ This is a book created from markdown and executable code.
 
 See @knuth84 for additional discussion of literate programming.
 
-```{r}
-1 + 1
+```{r echo = F}
+
+
+# harvest trends datasets 1966-2015
+# https://catalog.epscor.alaska.edu/dataset/commercial-recreational-and-personal-use-harvest-trends-in-the-kenai-river-salmon-fishery-1966-2015
+
+# overall run trends datasets 1976-2015
+# https://catalog.epscor.alaska.edu/dataset/total-run-sizes-of-chinook-and-sockeye-salmon-in-the-kenai-river-1976-2015
+
 ```
