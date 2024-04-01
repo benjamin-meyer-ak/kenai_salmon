@@ -1,0 +1,176 @@
+# UCI Salmon Fishery Data Sources {.unnumbered}
+
+---
+execute:
+  echo: false
+date: "`r Sys.Date()`"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-summary: "Show the code"
+---
+
+```{r, echo = F, message = F}
+
+#| warning: false
+#| message: false
+
+
+# clear environment
+rm(list=ls())
+
+# load packages
+library(tidyverse)
+library(janitor)
+```
+
+# Data Sources
+
+```{r echo = F}
+
+
+# harvest trends datasets 1966-2015
+# https://catalog.epscor.alaska.edu/dataset/commercial-recreational-and-personal-use-harvest-trends-in-the-kenai-river-salmon-fishery-1966-2015
+
+# overall run trends datasets 1976-2015
+# https://catalog.epscor.alaska.edu/dataset/total-run-sizes-of-chinook-and-sockeye-salmon-in-the-kenai-river-1976-2015
+
+```
+
+Note on data sources for Northern Kenai Peninsula Fisheries Harvest, from Schoen et al. 2017 supplemental materials:
+
+"Harvest and effort data are reported differently for the commercial, recreational, and
+personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and
+effort of salmon produced specifically by the Kenai River (including its tributaries) by each
+fishing sector. To make comparisons within a common geographic area, we aggregated harvest
+and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to
+Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this
+area. We aggregated harvest and effort data from the following fisheries: Commercial: Central
+District drift gill net and east-side set gill net (Shields and Dupuis 2016); Recreational: Northern
+Kenai Peninsula Management Area (Begich et al. 2013); Personal-use: Kenai River dip net,
+Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016).
+ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook
+Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We
+allocated this harvest and effort to each known fishery based on the proportions of accurately
+reported harvest and effort in each year."
+
+
+## Personal Use Harvest
+
+```{r echo = F}
+# read in pre 1996 PU
+dir <- "other/input/harvest_trends/puharvest_pre1996.csv"
+puharvest_pre1996 <- read.csv(dir) %>%
+  clean_names() %>%
+  # prep format
+  pivot_longer(cols = c("harvest_sockeye",
+                        "harvest_chinook",
+                        "harvest_coho",
+                        "harvest_chum",
+                        "harvest_pink"), names_to = "species", values_to = "count") %>%
+  select(-harvest_total) %>%
+  # corrected species names
+  mutate(species = case_when(
+    species == "harvest_sockeye" ~ "Sockeye",
+    species == "harvest_chinook" ~ "Chinook",
+    species == "harvest_chum" ~ "Chum",
+    species == "harvest_pink" ~ "Pink",
+    species == "harvest_coho" ~ "Coho")) %>%
+  # consolidate data among fisheries, as the figure does not segregate them
+  group_by(species, year) %>%
+  summarise(total_count = sum(count))
+
+```
+
+
+```{r echo = F}
+# read in post 1996 PU
+dir <- "other/input/harvest_trends/puharvest_post1996.csv"
+puharvest_post1996 <- read.csv(dir) %>%
+  clean_names() %>%
+  # prep format
+  pivot_longer(cols = c("fish_cr",
+                        "kasilof_set",
+                        "kasilof_dip",
+                        "kenai",
+                        "unknown"), names_to = "fishery", values_to = "count") %>%
+  # consolidate data among fisheries, as the figure does not segregate them
+  group_by(species, year) %>%
+  summarise(total_count = sum(count))
+
+```
+
+
+```{r echo = F}
+# combine pre-1996 and post-1996 PU data
+uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
+  mutate(fishery = "harvest_group")
+
+# PU plot
+pu_fig <- uci_pu %>%
+  ggplot() +
+  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  xlab("") +
+  ylab("Personal Use Harvest (Thousands)") +
+  theme_classic()
+pu_fig
+
+# number format on y axis
+# capitalize legend
+# reverse stack order
+# match colors
+# secondary y-axis
+
+```
+
+
+
+
+<br>
+
+## Commercial Harvest
+```{r echo = F}
+# read in comm fish data
+dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
+uci_comm <- read.csv(dir) %>%
+  clean_names() %>%
+  # remove percentage columns
+  select(-contains(("_2"))) %>%
+  pivot_longer(cols = c("drift",
+                        "essn",
+                        "wssn",
+                        "nsn"), names_to = "fishery", values_to = "count") %>%
+  # consolidate counts from various fisheries
+  group_by(species,year) %>%
+  summarise(total_count = sum(count)) %>%
+  mutate(harvest_group = "Commercial")
+
+```
+
+```{r echo = F}
+
+# comm plot
+comm_fig <- uci_comm %>%
+  ggplot() +
+  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  xlab("") +
+  ylab("Commercial Harvest (Thousands)") +
+  theme_classic()
+comm_fig
+
+```
+<br>
+
+
+
+## Sport Harvest
+
+```{r echo = F}
+# read in uci sport fish data
+dir <- "other/input/harvest_trends/sportharvest.csv"
+uci_sport <- read.csv(dir) %>%
+  clean_names()
+
+```
+
