@@ -149,7 +149,6 @@ uci_comm <- read.csv(dir) %>%
 ```
 
 ```{r echo = F}
-
 # comm plot
 comm_fig <- uci_comm %>%
   ggplot() +
@@ -170,7 +169,19 @@ comm_fig
 # read in uci sport fish data
 dir <- "other/input/harvest_trends/sportharvest.csv"
 uci_sport <- read.csv(dir) %>%
-  clean_names()
+  clean_names() %>%
+  select(contains("_salmon|_trout"))
+  pivot_longer(cols = contains(any_of("salmon","trout")))
 
 ```
+
+
+
+
+
+
+
+
+
+
 
