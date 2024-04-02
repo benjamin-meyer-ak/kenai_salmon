@@ -23,6 +23,7 @@ rm(list=ls())
 # load packages
 library(tidyverse)
 library(janitor)
+library(scales)
 ```
 
 # Data Sources
@@ -95,6 +96,11 @@ puharvest_post1996 <- read.csv(dir) %>%
                         "kasilof_dip",
                         "kenai",
                         "unknown"), names_to = "fishery", values_to = "count") %>%
+  
+  
+  ### WORKING HERE  - integer/character combination error, choose consistent col format
+  
+  
   # consolidate data among fisheries, as the figure does not segregate them
   group_by(species, year) %>%
   summarise(total_count = sum(count))
@@ -105,12 +111,13 @@ puharvest_post1996 <- read.csv(dir) %>%
 ```{r echo = F}
 # combine pre-1996 and post-1996 PU data
 uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
-  mutate(fishery = "harvest_group")
+  mutate(harvest_group = "Personal Use")
 
 # PU plot
 pu_fig <- uci_pu %>%
   ggplot() +
   geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  scale_y_continuous(labels = label_comma()) +
   xlab("") +
   ylab("Personal Use Harvest (Thousands)") +
   theme_classic()
@@ -153,8 +160,9 @@ uci_comm <- read.csv(dir) %>%
 comm_fig <- uci_comm %>%
   ggplot() +
   geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  scale_y_continuous(labels = label_comma()) +
   xlab("") +
-  ylab("Commercial Harvest (Thousands)") +
+  ylab("Commercial Harvest") +
   theme_classic()
 comm_fig
 
@@ -170,8 +178,47 @@ comm_fig
 dir <- "other/input/harvest_trends/sportharvest.csv"
 uci_sport <- read.csv(dir) %>%
   clean_names() %>%
-  select(contains("_salmon|_trout"))
-  pivot_longer(cols = contains(any_of("salmon","trout")))
+  select(contains(c("year","area","salmon","trout","dolly","grayling","pike","other"))) %>%
+  # consolidate all non-salmon species into "other"
+  rowwise() %>%
+  mutate(other = sum(rainbow_trout, 
+                     lake_trout, 
+                     dolly_varden,
+                     arctic_grayling,
+                     northern_pike,
+                     other,
+                     na.rm = T)) %>%
+  # remove non-salmon species columns
+  select(-rainbow_trout, -lake_trout, -dolly_varden,-arctic_grayling,-northern_pike) %>%
+  pivot_longer(cols = contains(c("salmon","other")),
+               names_to = "species",
+               values_to = "count") %>%
+  # consolidate counts from various fisheries into overall sport fishery
+  group_by(year,species) %>%
+  summarise(total_count = sum(count)) %>%
+  # fix species names
+  mutate(species = case_when(
+    species == "chinook_salmon" ~ "Chinook",
+    species == "chum_salmon" ~ "Chum",
+    species == "coho_salmon" ~ "Coho",
+    species == "pink_salmon" ~ "Pink",
+    species == "sockeye_salmon" ~ "Sockeye",
+    species == "other" ~ "Other")) %>%
+  # name user group
+  mutate(harvest_group = "Sport")
+
+```
+
+```{r echo = F}
+# comm plot
+sport_fig <- uci_sport %>%
+  ggplot() +
+  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  scale_y_continuous(labels = label_comma()) +
+  xlab("") +
+  ylab("Sport Harvest") +
+  theme_classic()
+sport_fig
 
 ```
 
@@ -179,6 +226,8 @@ uci_sport <- read.csv(dir) %>%
 
 
 
+Next: find updated data sources to 2022 or 2023
+comm?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
 
 
 
