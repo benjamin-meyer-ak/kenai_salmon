@@ -24,6 +24,7 @@ rm(list=ls())
 library(tidyverse)
 library(janitor)
 library(scales)
+library(magrittr)
 ```
 
 # Data Sources
@@ -90,20 +91,30 @@ puharvest_pre1996 <- read.csv(dir) %>%
 dir <- "other/input/harvest_trends/puharvest_post1996.csv"
 puharvest_post1996 <- read.csv(dir) %>%
   clean_names() %>%
+  # make class consistent with other fisheries results
+  transform(unknown = as.character(unknown)) %>%
   # prep format
   pivot_longer(cols = c("fish_cr",
                         "kasilof_set",
                         "kasilof_dip",
                         "kenai",
                         "unknown"), names_to = "fishery", values_to = "count") %>%
+  select(-page,-source,-fishery) 
   
-  
-  ### WORKING HERE  - integer/character combination error, choose consistent col format
-  
-  
+# replace all NA in count column with zero; need to figure out w/ how to keep in pipeline
+puharvest_post1996[is.na(puharvest_post1996)] <- "0"
+
+
+puharvest_post1996 %<>%  
+  transform(count = as.numeric(count)) %>%
   # consolidate data among fisheries, as the figure does not segregate them
+  ungroup() %>%
   group_by(species, year) %>%
   summarise(total_count = sum(count))
+
+# error: data post 2015 is gett converted from 0 to NA in the simamrise ste ?!?!?!?!?
+
+
 
 ```
 
