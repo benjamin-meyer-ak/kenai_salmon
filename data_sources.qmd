@@ -81,7 +81,8 @@ puharvest_pre1996 <- read.csv(dir) %>%
     species == "harvest_coho" ~ "Coho")) %>%
   # consolidate data among fisheries, as the figure does not segregate them
   group_by(species, year) %>%
-  summarise(total_count = sum(count))
+  summarise(total_count = sum(count)) %>%
+  transform(year = as.character(year))
 
 ```
 
@@ -91,29 +92,22 @@ puharvest_pre1996 <- read.csv(dir) %>%
 dir <- "other/input/harvest_trends/puharvest_post1996.csv"
 puharvest_post1996 <- read.csv(dir) %>%
   clean_names() %>%
-  # make class consistent with other fisheries results
-  transform(unknown = as.character(unknown)) %>%
+  select(-source,-page) %>%
+  # remove commas
+  mutate_all(~sub(",","",.)) %>%
   # prep format
   pivot_longer(cols = c("fish_cr",
                         "kasilof_set",
                         "kasilof_dip",
                         "kenai",
                         "unknown"), names_to = "fishery", values_to = "count") %>%
-  select(-page,-source,-fishery) 
-  
-# replace all NA in count column with zero; need to figure out w/ how to keep in pipeline
-puharvest_post1996[is.na(puharvest_post1996)] <- "0"
-
-
-puharvest_post1996 %<>%  
   transform(count = as.numeric(count)) %>%
-  # consolidate data among fisheries, as the figure does not segregate them
-  ungroup() %>%
+  select(-fishery) %>%
+  # replace all 0 with NA
+  mutate(count = na_if(count,0)) %>%
   group_by(species, year) %>%
-  summarise(total_count = sum(count))
-
-# error: data post 2015 is gett converted from 0 to NA in the simamrise ste ?!?!?!?!?
-
+  # recall to include na.rm = T
+  summarise(total_count = sum(count, na.rm = T)) 
 
 
 ```
@@ -122,17 +116,28 @@ puharvest_post1996 %<>%
 ```{r echo = F}
 # combine pre-1996 and post-1996 PU data
 uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
-  mutate(harvest_group = "Personal Use")
+  mutate(harvest_group = "Personal Use") 
+
 
 # PU plot
 pu_fig <- uci_pu %>%
+  filter(species != "HouseholdDaysFished") %>%
   ggplot() +
   geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
-  ylab("Personal Use Harvest (Thousands)") +
+  ylab("Personal Use Harvest") +
   theme_classic()
 pu_fig
+
+# add secondary axis
+
+
+# suggested alternative: secondary chart below w/ household days
+
+
+
+
 
 # number format on y axis
 # capitalize legend
@@ -238,7 +243,7 @@ sport_fig
 
 
 Next: find updated data sources to 2022 or 2023
-comm?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
+comm? possibly appendix 21, but its not broken up the same way. or, appendix b5. where/how is 'upper subdistrict' defined?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
 
 
 
