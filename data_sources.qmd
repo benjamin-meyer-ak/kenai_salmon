@@ -42,21 +42,7 @@ library(magrittr)
 
 Note on data sources for Northern Kenai Peninsula Fisheries Harvest, from Schoen et al. 2017 supplemental materials:
 
-"Harvest and effort data are reported differently for the commercial, recreational, and
-personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and
-effort of salmon produced specifically by the Kenai River (including its tributaries) by each
-fishing sector. To make comparisons within a common geographic area, we aggregated harvest
-and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to
-Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this
-area. We aggregated harvest and effort data from the following fisheries: Commercial: Central
-District drift gill net and east-side set gill net (Shields and Dupuis 2016); Recreational: Northern
-Kenai Peninsula Management Area (Begich et al. 2013); Personal-use: Kenai River dip net,
-Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016).
-ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook
-Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We
-allocated this harvest and effort to each known fishery based on the proportions of accurately
-reported harvest and effort in each year."
-
+"Harvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai River (including its tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area. We aggregated harvest and effort data from the following fisheries: Commercial: Central District drift gill net and east-side set gill net (Shields and Dupuis 2016); Recreational: Northern Kenai Peninsula Management Area (Begich et al. 2013); Personal-use: Kenai River dip net, Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016). ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We allocated this harvest and effort to each known fishery based on the proportions of accurately reported harvest and effort in each year."
 
 ## Personal Use Harvest
 
@@ -86,7 +72,6 @@ puharvest_pre1996 <- read.csv(dir) %>%
 
 ```
 
-
 ```{r echo = F}
 # read in post 1996 PU
 dir <- "other/input/harvest_trends/puharvest_post1996.csv"
@@ -111,7 +96,6 @@ puharvest_post1996 <- read.csv(dir) %>%
 
 
 ```
-
 
 ```{r echo = F}
 # combine pre-1996 and post-1996 PU data
@@ -147,12 +131,10 @@ pu_fig
 
 ```
 
-
-
-
 <br>
 
 ## Commercial Harvest
+
 ```{r echo = F}
 # read in comm fish data
 dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
@@ -183,9 +165,8 @@ comm_fig <- uci_comm %>%
 comm_fig
 
 ```
+
 <br>
-
-
 
 ## Sport Harvest
 
@@ -238,15 +219,4 @@ sport_fig
 
 ```
 
-
-
-
-
-Next: find updated data sources to 2022 or 2023
-comm? possibly appendix 21, but its not broken up the same way. or, appendix b5. where/how is 'upper subdistrict' defined?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
-
-
-
-
-
-
+Next: find updated data sources to 2022 or 2023 comm? possibly appendix 21, but its not broken up the same way. or, appendix b5. where/how is 'upper subdistrict' defined?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
