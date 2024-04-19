@@ -163,13 +163,13 @@ Coho,2012,74678,69.9,6537,6.1,12354,11.6,13206,12.4,106775,Shields and Dupuis 20
 Coho,2013,184771,70.8,2266,0.9,31513,12.1,42413,16.3,260963,Shields and Dupuis 2064,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,159
 Coho,2014,76932,56,5908,4.3,19379,14.1,35200,25.6,137419,Shields and Dupuis 2065,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,159
 Coho,2015,130720,60.5,17948,8.3,20748,9.6,46616,21.6,216032,Shields and Dupuis 2066,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,159
-Coho,2016,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2017,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2018,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2019,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2020,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2021,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
-Coho,2022,,,,,,,,,,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2016,90242,61.2,11606,7.9,15171,10.3,30476,20.7,147495,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2017,191490,63.1,29916,9.9,29535,9.7,52701,17.4,303642,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2018,108906,46.9,4705,2,51581,22.2,67098,28.9,232290,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2019,88618,54.1,6511,4,16799,10.3,51935,31.7,163863,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2020,48803,35,372,0.3,35612,25.6,54453,39.1,139240,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2021,80982,54.9,883,0.6,19702,13.4,45825,31.1,147392,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
+Coho,2022,51306,50,28,0,14401,14,36895,35.9,102630,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,101
 Pink,1966,593654,29.6,969624,48.3,70507,3.5,371960,18.5,2005745,Shields and Dupuis 2067,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,160
 Pink,1967,7475,23.2,13038,40.5,3256,10.1,8460,26.2,32229,Shields and Dupuis 2068,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,160
 Pink,1968,880512,38.7,785887,34.5,75755,3.3,534839,23.5,2276993,Shields and Dupuis 2069,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,160
@@ -220,7 +220,14 @@ Pink,2012,303216,64.6,159003,33.9,3376,0.7,4003,0.9,469598,Shields and Dupuis 21
 Pink,2013,30605,63.4,14671,30.4,1014,2.1,1985,4.1,48275,Shields and Dupuis 2114,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,161
 Pink,2014,417344,64.9,213616,33.2,4331,0.7,7695,1.2,642986,Shields and Dupuis 2115,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,161
 Pink,2015,21653,45.1,22983,47.9,1175,2.4,2193,4.6,48004,Shields and Dupuis 2116,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,161
-Chum,1966,424972,79.8,7461,1.4,64725,12.1,35598,6.7,532756,Shields and Dupuis 2117,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,162
+Pink,2016,268908,70.3,103503,27.1,2089,2.4,7968,2.1,382468,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2017,89963,53.6,59995,35.7,7775,0.5,10109,6,167842,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2018,83535,65.8,21822,17.2,8294,4.6,13272,10.5,126923,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2019,27607,39,32746,46.3,3795,6.5,6679,9.4,70827,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2020,293676,85.1,11604,3.4,12325,5.4,27467,8,345072,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2021,65391,82.4,5944,7.5,3281,3.6,4712,5.9,79328,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Pink,2022,89953,89.1,317,0.3,2650,4.1,8044,8,100964,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,103
+Chum,2022,424972,79.8,7461,1.4,64725,2.6,35598,6.7,532756,Shields and Dupuis 2117,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,162
 Chum,1967,233041,78.5,399,0.1,25013,8.4,38384,12.9,296837,Shields and Dupuis 2118,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,162
 Chum,1968,1002900,90.5,1563,0.1,44986,4.1,58454,5.3,1107903,Shields and Dupuis 2119,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,162
 Chum,1969,238497,89.1,399,0.1,16954,6.3,11836,4.4,267686,Shields and Dupuis 2120,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,162
@@ -270,6 +277,13 @@ Chum,2012,264513,98.1,49,0,2872,1.1,2299,0.9,269733,Shields and Dupuis 2163,http
 Chum,2013,132172,94.8,102,0.1,4854,3.5,2237,1.6,139365,Shields and Dupuis 2164,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,163
 Chum,2014,108345,93.3,548,0.5,4828,4.2,2406,2.1,116127,Shields and Dupuis 2165,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,163
 Chum,2015,252331,91.4,2248,0.8,15312,5.5,6069,2.2,275960,Shields and Dupuis 2166,http://www.adfg.alaska.gov/FedAidPDFs/FMR16-14.pdf,163
+Chum,2016,113258,91.6,1203,1,6050,4.9,3168,2.6,123679,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2017,232501,95.4,601,0.2,5684,2.3,4814,2,243600,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2018,108216,93.8,78,0.1,2924,2.5,4148,3.6,115366,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2019,112518,87.1,528,0.4,9006,7,7124,5.5,129176,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2020,25223,86.3,31,0.1,1841,6.3,2122,7.3,29217,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2021,65391,93.1,50,0.1,2142,3,2659,3.8,70242,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
+Chum,2022,92248,92.8,8,0,2808,2.8,4369,4.4,99433,Lipka and Stumpf 2024,https://www.adfg.alaska.gov/FedAidPDFs/FMR24-04.pdf,105
 Other,1966,0,0,0,0,0,0,0,0,0,"Added ""other"" to table for plotting purposes (not in ADFG report)",,
 Other,1967,0,0,0,0,0,0,0,0,0,"Added ""other"" to table for plotting purposes (not in ADFG report)",,
 Other,1968,0,0,0,0,0,0,0,0,0,"Added ""other"" to table for plotting purposes (not in ADFG report)",,

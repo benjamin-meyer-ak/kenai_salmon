@@ -207,7 +207,7 @@ uci_sport <- read.csv(dir) %>%
 ```
 
 ```{r echo = F}
-# comm plot
+# sport plot
 sport_fig <- uci_sport %>%
   ggplot() +
   geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
@@ -219,8 +219,9 @@ sport_fig
 
 ```
 
-Next: find updated data sources to 2022 or 2023 comm? possibly appendix 21, but its not broken up the same way. or, appendix b5. where/how is 'upper subdistrict' defined?: https://www.adfg.alaska.gov/static/regulations/regprocess/fisheriesboard/pdfs/2023-2024/uci/fmr_22-16.pdf
+Next: 
 
-Received commfish data from Anna
+- find updated data sources for sport fish harvest
+- figure out dual axes to show effort
 
-Idea for new fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escaement in context of harvest.
+Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escaement in context of harvest.
