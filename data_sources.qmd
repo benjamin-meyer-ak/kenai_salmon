@@ -164,6 +164,8 @@ comm_fig <- uci_comm %>%
   theme_classic()
 comm_fig
 
+# question - what would this harvest figure look like broken down by species? Also for vs total run for each spp
+
 ```
 
 <br>
