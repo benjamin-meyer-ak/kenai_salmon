@@ -52,6 +52,49 @@ We aggregated harvest and effort data from the following fisheries:
 
 -   Personal-use: Kenai River dip net, Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016). ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We allocated this harvest and effort to each known fishery based on the proportions of accurately reported harvest and effort in each year."
 
+<br>
+
+## Commercial Harvest
+
+```{r echo = F}
+# read in comm fish data
+dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
+uci_comm <- read.csv(dir) %>%
+  clean_names() %>%
+  # remove percentage columns
+  select(-contains(("_2"))) %>%
+  pivot_longer(cols = c("drift",
+                        "essn",
+                        "wssn",
+                        "nsn"), names_to = "fishery", values_to = "count") %>%
+  # consolidate counts from various fisheries
+  group_by(species,year) %>%
+  summarise(total_count = sum(count)) %>%
+  mutate(harvest_group = "Commercial")
+
+```
+
+```{r echo = F}
+# comm plot
+comm_fig <- uci_comm %>%
+  ggplot() +
+  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  scale_y_continuous(labels = label_comma()) +
+  xlab("") +
+  ylab("Commercial Harvest") +
+  theme_classic()
+comm_fig
+
+
+# the commercial harvest data set is the longest, so we will make that the axis extent for the other figures too
+comm_year_min <- as.numeric(min(uci_comm$year))
+comm_year_max <- as.numeric(max(uci_comm$year))
+
+```
+
+<br>
+
+
 ## Personal Use Harvest
 
 ```{r echo = F}
@@ -115,10 +158,11 @@ uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
 pu_fig <- uci_pu %>%
   filter(species != "HouseholdDaysFished") %>%
   ggplot() +
-  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
   ylab("Personal Use Harvest") +
+  xlim(comm_year_min,comm_year_max) +
   theme_classic()
 pu_fig
 
@@ -139,42 +183,7 @@ pu_fig
 
 ```
 
-<br>
 
-## Commercial Harvest
-
-```{r echo = F}
-# read in comm fish data
-dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
-uci_comm <- read.csv(dir) %>%
-  clean_names() %>%
-  # remove percentage columns
-  select(-contains(("_2"))) %>%
-  pivot_longer(cols = c("drift",
-                        "essn",
-                        "wssn",
-                        "nsn"), names_to = "fishery", values_to = "count") %>%
-  # consolidate counts from various fisheries
-  group_by(species,year) %>%
-  summarise(total_count = sum(count)) %>%
-  mutate(harvest_group = "Commercial")
-
-```
-
-```{r echo = F}
-# comm plot
-comm_fig <- uci_comm %>%
-  ggplot() +
-  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
-  scale_y_continuous(labels = label_comma()) +
-  xlab("") +
-  ylab("Commercial Harvest") +
-  theme_classic()
-comm_fig
-
-# question - what would this harvest figure look like broken down by species? Also for vs total run for each spp
-
-```
 
 <br>
 
@@ -220,10 +229,11 @@ uci_sport <- read.csv(dir) %>%
 # sport plot
 sport_fig <- uci_sport %>%
   ggplot() +
-  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
   ylab("Sport Harvest") +
+  xlim(comm_year_min,comm_year_max) +
   theme_classic()
 sport_fig
 
@@ -234,4 +244,13 @@ Next:
 -   find updated data sources for sport fish harvest
 -   figure out dual axes to show effort
 
-Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escaement in context of harvest.
+Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest.  --> might be hard to do becuase the above figures do not include solely kenai fish
+
+- secondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/
+
+
+- step 1: recreate fig as is
+- step 2: show proportional sizes of figs in context of comm
+- step 3: show stacked proportion by fishery by year
+
+
