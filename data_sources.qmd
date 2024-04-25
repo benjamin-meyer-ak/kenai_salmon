@@ -92,7 +92,7 @@ comm_year_max <- as.numeric(max(uci_comm$year))
 
 # for some visualization purposes, we want the y-axis to show the scale of the largest harvest category, commercial. Species are aggregated
 # comm_harvest_min <- group_by(year) %>% summarise(total_comm_harvest = sum(total_ct)) # throws error
-comm_harvest_max
+# comm_harvest_max
 
 ```
 
