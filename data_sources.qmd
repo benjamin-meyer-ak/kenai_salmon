@@ -176,16 +176,59 @@ pu_fig
 # suggested alternative: secondary chart below w/ household days
 
 
-
-
-
 # number format on y axis
 # capitalize legend
 # reverse stack order
 # match colors
 # secondary y-axis
 
+# experiment w pu fig W 2ndary axis
+# example
+
+# 1) get effort data in new column
+uci_pu2 <- uci_pu %>% filter(species == "HouseholdDaysFished") %>%
+  select(-species)
+colnames(uci_pu2) <- c("year","household_days_fished","harvest_group")
+uci_pu2 <- left_join(uci_pu,uci_pu2) %>%
+  filter(species != "HouseholdDaysFished")
+
+
+
+# WORKING HERE on trying to understand and adjust scaling factors
+
+
+# 2) plot PU fig v2
+# PU plot
+scale_factor <- 5
+
+pu_fig2 <- uci_pu2 %>%
+  filter(species != "HouseholdDaysFished") %>%
+  ggplot() +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
+  geom_line(aes(x = as.numeric(year), y = household_days_fished), color = "blue") +
+  scale_y_continuous(sec.axis = sec_axis(~ .*5, labels = number_format(scale=1/scale_factor), name="Houeehold Days Fished")) +
+  xlab("") +
+  ylab("Personal Use Harvest") +
+  xlim(comm_year_min,comm_year_max) +
+  theme_classic()
+pu_fig2
+
+
+FakeData <- data.frame(Date = seq(as.Date("2020-01-01"), to = as.Date("2020-01-31"), by = "days"),
+                       Level = runif(31, 0, 30), Flow = runif(31, 1,10))
+
+
+
+ggplot(data = FakeData, aes(x = Date))+
+   geom_col(aes(y = Level), fill="darkgreen") +
+   geom_line(aes(y = Flow*scale_factor), color="blue") +
+   scale_y_continuous(sec.axis = sec_axis(~ .*1, labels = number_format(scale=1/scale_factor), name="Flow"))
+
+
 ```
+
+
+
 
 
 
@@ -256,5 +299,7 @@ Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack b
 - step 1: recreate fig as is
 - step 2: show proportional sizes of figs in context of comm
 - step 3: show stacked proportion by fishery by year
+
+
 
 
