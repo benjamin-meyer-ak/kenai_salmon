@@ -94,6 +94,8 @@ comm_year_max <- as.numeric(max(uci_comm$year))
 # comm_harvest_min <- group_by(year) %>% summarise(total_comm_harvest = sum(total_ct)) # throws error
 # comm_harvest_max
 
+
+# need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
 ```
 
 <br>
@@ -157,30 +159,25 @@ puharvest_post1996 <- read.csv(dir) %>%
 uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
   mutate(harvest_group = "Personal Use") 
 
+# specify order of species for stacked bar chart
+# uci_pu$species <- factor(uci_pu$species, levels = c("Sockeye","Coho","Chinook","Chum","Pink"))
+
+# error: something about about specifying factor/levels causes the effort time series to disappear
+
 
 # PU plot
 pu_fig <- uci_pu %>%
   filter(species != "HouseholdDaysFished") %>%
   ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), position = "stack", stat = "identity") +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
   ylab("Personal Use Harvest") +
   xlim(comm_year_min,comm_year_max) +
   theme_classic()
-pu_fig
+# pu_fig
 
 # add secondary axis
-
-
-# suggested alternative: secondary chart below w/ household days
-
-
-# number format on y axis
-# capitalize legend
-# reverse stack order
-# match colors
-# secondary y-axis
 
 # experiment w pu fig W 2ndary axis
 # example
@@ -193,38 +190,32 @@ uci_pu2 <- left_join(uci_pu,uci_pu2) %>%
   filter(species != "HouseholdDaysFished")
 
 
-
-# WORKING HERE on trying to understand and adjust scaling factors
-
-
 # 2) plot PU fig v2
 # PU plot
-scale_factor <- 5
+scale_factor <- 16
 
 pu_fig2 <- uci_pu2 %>%
   filter(species != "HouseholdDaysFished") %>%
   ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
-  geom_line(aes(x = as.numeric(year), y = household_days_fished), color = "blue") +
-  scale_y_continuous(sec.axis = sec_axis(~ .*5, labels = number_format(scale=1/scale_factor), name="Houeehold Days Fished")) +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity") +
+  geom_line(aes(x = as.numeric(year), y = household_days_fished * scale_factor), color = "black", size = 1.05) +
+  scale_y_continuous(name = "Personal Use Harvest", 
+                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Household Days Fished)"),
+                     labels = comma) +
   xlab("") +
   ylab("Personal Use Harvest") +
   xlim(comm_year_min,comm_year_max) +
-  theme_classic()
+  theme_classic() +
+  ggtitle("Northern Kenai Peninsula Personal Use Salmon Fishery")
 pu_fig2
 
 
-FakeData <- data.frame(Date = seq(as.Date("2020-01-01"), to = as.Date("2020-01-31"), by = "days"),
-                       Level = runif(31, 0, 30), Flow = runif(31, 1,10))
+# tics on 2ndary y axis
+# capitalize legend
+# reverse stack order
+# match colors
 
-
-
-ggplot(data = FakeData, aes(x = Date))+
-   geom_col(aes(y = Level), fill="darkgreen") +
-   geom_line(aes(y = Flow*scale_factor), color="blue") +
-   scale_y_continuous(sec.axis = sec_axis(~ .*1, labels = number_format(scale=1/scale_factor), name="Flow"))
-
-
+# see how this looks as a faceted plot with effort on top ?
 ```
 
 
@@ -277,13 +268,16 @@ uci_sport <- read.csv(dir) %>%
 sport_fig <- uci_sport %>%
   ggplot() +
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
-  scale_y_continuous(labels = label_comma()) +
+  scale_y_continuous(labels = comma) +
   xlab("") +
   ylab("Sport Harvest") +
   xlim(comm_year_min,comm_year_max) +
+  ylim(0,800000) +
   theme_classic()
 sport_fig
 
+
+# effort: Gates et al p55, 1999-2022; begich et al 2013 p 93
 ```
 
 Next:
@@ -299,6 +293,8 @@ Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack b
 - step 1: recreate fig as is
 - step 2: show proportional sizes of figs in context of comm
 - step 3: show stacked proportion by fishery by year
+
+- place citations/sources for data below each plot
 
 
 
