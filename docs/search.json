@@ -26,5 +26,33 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "data_sources.html",
+    "href": "data_sources.html",
+    "title": "UCI Salmon Fishery Data Sources",
+    "section": "",
+    "text": "Data Sources\nNote on data sources for Northern Kenai Peninsula Fisheries Harvest, from Schoen et al. 2017 supplemental materials:\n“Harvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai River (including its tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area.\nWe aggregated harvest and effort data from the following fisheries:"
+  },
+  {
+    "objectID": "data_sources.html#commercial-harvest",
+    "href": "data_sources.html#commercial-harvest",
+    "title": "UCI Salmon Fishery Data Sources",
+    "section": "Commercial Harvest",
+    "text": "Commercial Harvest\n\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument."
+  },
+  {
+    "objectID": "data_sources.html#personal-use-harvest",
+    "href": "data_sources.html#personal-use-harvest",
+    "title": "UCI Salmon Fishery Data Sources",
+    "section": "Personal Use Harvest",
+    "text": "Personal Use Harvest\n\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n\n\nJoining with `by = join_by(year, harvest_group)`\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\nWarning: Removed 61 rows containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\nWarning: Removed 80 rows containing missing values or values outside the scale range\n(`geom_line()`)."
+  },
+  {
+    "objectID": "data_sources.html#sport-harvest",
+    "href": "data_sources.html#sport-harvest",
+    "title": "UCI Salmon Fishery Data Sources",
+    "section": "Sport Harvest",
+    "text": "Sport Harvest\n\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument.\n\n\n\n\nScale for y is already present.\nAdding another scale for y, which will replace the existing scale.\n\n\nWarning: Removed 6 rows containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\nNext:\n\nfind updated data sources for sport fish harvest\nfigure out dual axes to show effort\n\nIdea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest … can visualize remaining escapement in context of harvest. –&gt; might be hard to do becuase the above figures do not include solely kenai fish\n\nsecondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/\nstep 1: recreate fig as is\nstep 2: show proportional sizes of figs in context of comm\nstep 3: show stacked proportion by fishery by year\nplace citations/sources for data below each plot"
   }
 ]
