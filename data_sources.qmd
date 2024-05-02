@@ -276,6 +276,8 @@ sport_fig <- uci_sport %>%
   theme_classic()
 sport_fig
 
+# add effort data
+
 
 # effort: Gates et al p55, 1999-2022; begich et al 2013 p 93
 ```
@@ -287,7 +289,6 @@ Next:
 
 Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest.  --> might be hard to do becuase the above figures do not include solely kenai fish
 
-- secondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/
 
 
 - step 1: recreate fig as is
@@ -296,6 +297,10 @@ Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack b
 
 - place citations/sources for data below each plot
 
+
+See p 91 in lipka & stumpf 2024, all uci sockeye harvests combined
+
+plan - draft for sport and pu; send to anna, as for effort data for comm
 
 
 
