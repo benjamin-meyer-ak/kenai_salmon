@@ -86,6 +86,9 @@ comm_fig <- uci_comm %>%
 comm_fig
 
 
+# see 2nd answer at https://stackoverflow.com/questions/32345923/how-to-control-ordering-of-stacked-bar-chart-using-identity-on-ggplot2 ????
+
+
 # the commercial harvest data set is the longest, so we will make that the axis extent for the other figures too
 comm_year_min <- as.numeric(min(uci_comm$year))
 comm_year_max <- as.numeric(max(uci_comm$year))
@@ -179,8 +182,6 @@ pu_fig <- uci_pu %>%
 
 # add secondary axis
 
-# experiment w pu fig W 2ndary axis
-# example
 
 # 1) get effort data in new column
 uci_pu2 <- uci_pu %>% filter(species == "HouseholdDaysFished") %>%
@@ -209,8 +210,6 @@ pu_fig2 <- uci_pu2 %>%
   ggtitle("Northern Kenai Peninsula Personal Use Salmon Fishery")
 pu_fig2
 
-
-# tics on 2ndary y axis
 # capitalize legend
 # reverse stack order
 # match colors
@@ -276,10 +275,41 @@ sport_fig <- uci_sport %>%
   theme_classic()
 sport_fig
 
+
+# plot sport v2 with effort
+
 # add effort data
+sport_effort <- read.csv("other/input/harvest_trends/sportharvest_effort.csv") %>%
+  clean_names() %>%
+  select(year,kenai_river_total) %>%
+  rename(angler_days = kenai_river_total) %>%
+  # remove commas
+  mutate_all(~sub(",","",.)) %>%
+  transform(angler_days = as.numeric(angler_days),
+            year = as.integer(year))
+# join
+uci_sport2 <- left_join(uci_sport,sport_effort)
+
+# plot
+scale_factor <- 2
+
+sport_fig2 <- uci_sport2 %>%
+  ggplot() +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity") +
+  geom_line(aes(x = as.numeric(year), y = angler_days * scale_factor), color = "black", size = 1.05) +
+  scale_y_continuous(name = "Sport Harvest", 
+                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Angler Days)"),
+                     labels = comma) +
+  xlab("") +
+  ylab("Sport Harvest") +
+  xlim(comm_year_min,comm_year_max) +
+  theme_classic() +
+  ggtitle("Kenai River Sport Fishery")
+sport_fig2
 
 
-# effort: Gates et al p55, 1999-2022; begich et al 2013 p 93
+
+
 ```
 
 Next:
