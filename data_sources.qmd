@@ -54,9 +54,12 @@ We aggregated harvest and effort data from the following fisheries:
 
 <br>
 
-## Commercial Harvest
+## Read in data
 
 ```{r echo = F}
+
+### commercial
+
 # read in comm fish data
 dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
 uci_comm <- read.csv(dir) %>%
@@ -70,43 +73,17 @@ uci_comm <- read.csv(dir) %>%
   # consolidate counts from various fisheries
   group_by(species,year) %>%
   summarise(total_count = sum(count)) %>%
-  mutate(harvest_group = "Commercial")
+  mutate(harvest_group = "Commercial") %>%
+  transform(year = as.character(year))
 
-```
-
-```{r echo = F}
-# comm plot
-comm_fig <- uci_comm %>%
-  ggplot() +
-  geom_bar(aes(x = year, y = total_count, fill = species), stat = "identity") +
-  scale_y_continuous(labels = label_comma()) +
-  xlab("") +
-  ylab("Commercial Harvest") +
-  theme_classic()
-comm_fig
-
-
-# see 2nd answer at https://stackoverflow.com/questions/32345923/how-to-control-ordering-of-stacked-bar-chart-using-identity-on-ggplot2 ????
-
-
-# the commercial harvest data set is the longest, so we will make that the axis extent for the other figures too
+# the commercial harvest time series is the longest, so we will make that the axis extent for the other figures too
 comm_year_min <- as.numeric(min(uci_comm$year))
 comm_year_max <- as.numeric(max(uci_comm$year))
 
-# for some visualization purposes, we want the y-axis to show the scale of the largest harvest category, commercial. Species are aggregated
-# comm_harvest_min <- group_by(year) %>% summarise(total_comm_harvest = sum(total_ct)) # throws error
-# comm_harvest_max
+#################
 
+### personal use
 
-# need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
-```
-
-<br>
-
-
-## Personal Use Harvest
-
-```{r echo = F}
 # read in pre 1996 PU
 dir <- "other/input/harvest_trends/puharvest_pre1996.csv"
 puharvest_pre1996 <- read.csv(dir) %>%
@@ -130,9 +107,7 @@ puharvest_pre1996 <- read.csv(dir) %>%
   summarise(total_count = sum(count)) %>%
   transform(year = as.character(year))
 
-```
 
-```{r echo = F}
 # read in post 1996 PU
 dir <- "other/input/harvest_trends/puharvest_post1996.csv"
 puharvest_post1996 <- read.csv(dir) %>%
@@ -154,79 +129,14 @@ puharvest_post1996 <- read.csv(dir) %>%
   # recall to include na.rm = T
   summarise(total_count = sum(count, na.rm = T)) 
 
-
-```
-
-```{r echo = F}
 # combine pre-1996 and post-1996 PU data
 uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
   mutate(harvest_group = "Personal Use") 
 
-# specify order of species for stacked bar chart
-# uci_pu$species <- factor(uci_pu$species, levels = c("Sockeye","Coho","Chinook","Chum","Pink"))
+#########
 
-# error: something about about specifying factor/levels causes the effort time series to disappear
+### sport
 
-
-# PU plot
-pu_fig <- uci_pu %>%
-  filter(species != "HouseholdDaysFished") %>%
-  ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), position = "stack", stat = "identity") +
-  scale_y_continuous(labels = label_comma()) +
-  xlab("") +
-  ylab("Personal Use Harvest") +
-  xlim(comm_year_min,comm_year_max) +
-  theme_classic()
-# pu_fig
-
-# add secondary axis
-
-
-# 1) get effort data in new column
-uci_pu2 <- uci_pu %>% filter(species == "HouseholdDaysFished") %>%
-  select(-species)
-colnames(uci_pu2) <- c("year","household_days_fished","harvest_group")
-uci_pu2 <- left_join(uci_pu,uci_pu2) %>%
-  filter(species != "HouseholdDaysFished")
-
-
-# 2) plot PU fig v2
-# PU plot
-scale_factor <- 16
-
-pu_fig2 <- uci_pu2 %>%
-  filter(species != "HouseholdDaysFished") %>%
-  ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity") +
-  geom_line(aes(x = as.numeric(year), y = household_days_fished * scale_factor), color = "black", size = 1.05) +
-  scale_y_continuous(name = "Personal Use Harvest", 
-                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Household Days Fished)"),
-                     labels = comma) +
-  xlab("") +
-  ylab("Personal Use Harvest") +
-  xlim(comm_year_min,comm_year_max) +
-  theme_classic() +
-  ggtitle("Northern Kenai Peninsula Personal Use Salmon Fishery")
-pu_fig2
-
-# capitalize legend
-# reverse stack order
-# match colors
-
-# see how this looks as a faceted plot with effort on top ?
-```
-
-
-
-
-
-
-<br>
-
-## Sport Harvest
-
-```{r echo = F}
 # read in uci sport fish data
 dir <- "other/input/harvest_trends/sportharvest.csv"
 uci_sport <- read.csv(dir) %>%
@@ -258,22 +168,147 @@ uci_sport <- read.csv(dir) %>%
     species == "sockeye_salmon" ~ "Sockeye",
     species == "other" ~ "Other")) %>%
   # name user group
-  mutate(harvest_group = "Sport")
+  mutate(harvest_group = "Sport") %>%
+  transform(year = as.character(year))
+
+#### combine commercial, PU, and sport into single dataframe
+
+# combine dataframes for comm, pu, and sport
+dat <- bind_rows(uci_comm, uci_pu, uci_sport)
+
 
 ```
+
+
+# plots
+
+```{r echo = F, message = F}
+
+# horizontal faceted plot
+dat %>%
+  transform(year = as.numeric(year)) %>%
+  filter(year < 2023) %>%
+  group_by(year,harvest_group) %>%
+  summarise(total_harvest = sum(total_count)) %>%
+  ggplot() +
+  geom_bar(aes(x = year, y = total_harvest, fill = harvest_group), stat = "identity") +
+  scale_y_continuous(labels = label_comma()) +
+  theme_classic() +
+  xlab("") +
+  ylab("Total Harvest") +
+  ggtitle("Upper Cook Inlet Salmon Harvest (All Species)") 
+
+
+
+# report/include numbers for educational / traditional use; make point not big enough to plot here
+
+# plots of value / size
+
+
+
+```
+
+
+
+
+## Commercial Harvest
+
+```{r echo = F}
+# comm plot
+comm_fig <- uci_comm %>%
+  ggplot() +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity", position = position_stack(reverse = T)) +
+  scale_y_continuous(labels = label_comma()) +
+  xlab("") +
+  ylab("Commercial Harvest") +
+  theme_classic() +
+  ggtitle("Upper Cook Inlet Commercial Harvest")
+comm_fig
+
+
+# need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
+```
+
+<br>
+
+
+## Personal Use Harvest
+
+
+
+```{r echo = F}
+
+# PU plot
+pu_fig <- uci_pu %>%
+  filter(species != "HouseholdDaysFished") %>%
+  ggplot() +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
+  scale_y_continuous(labels = label_comma()) +
+  xlab("") +
+  ylab("Personal Use Harvest") +
+  xlim(comm_year_min,comm_year_max) +
+  theme_classic()
+ #pu_fig
+
+# add secondary axis
+
+
+# 1) get effort data in new column
+uci_pu2 <- uci_pu %>% filter(species == "HouseholdDaysFished") %>%
+  select(-species)
+colnames(uci_pu2) <- c("year","household_days_fished","harvest_group")
+uci_pu2 <- left_join(uci_pu,uci_pu2) %>%
+  filter(species != "HouseholdDaysFished")
+
+
+# 2) plot PU fig v2
+# PU plot
+scale_factor <- 16
+
+pu_fig2 <- uci_pu2 %>%
+  filter(species != "HouseholdDaysFished") %>%
+  ggplot() +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
+  geom_line(aes(x = as.numeric(year), y = household_days_fished * scale_factor), color = "black", size = 1.05) +
+  scale_y_continuous(name = "Personal Use Harvest", 
+                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Household Days Fished)"),
+                     labels = comma) +
+  xlab("") +
+  ylab("Personal Use Harvest") +
+  xlim(comm_year_min,comm_year_max) +
+  theme_classic() +
+  ggtitle("Northern Kenai Peninsula Personal Use Salmon Fishery")
+pu_fig2
+
+# capitalize legend
+# reverse stack order
+# match colors
+
+# see how this looks as a faceted plot with effort on top ?
+```
+
+
+
+
+
+
+<br>
+
+## Sport Harvest
+
 
 ```{r echo = F}
 # sport plot
 sport_fig <- uci_sport %>%
   ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity") +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity",position = position_stack(reverse = T)) +
   scale_y_continuous(labels = comma) +
   xlab("") +
   ylab("Sport Harvest") +
   xlim(comm_year_min,comm_year_max) +
   ylim(0,800000) +
   theme_classic()
-sport_fig
+#sport_fig
 
 
 # plot sport v2 with effort
@@ -286,7 +321,7 @@ sport_effort <- read.csv("other/input/harvest_trends/sportharvest_effort.csv") %
   # remove commas
   mutate_all(~sub(",","",.)) %>%
   transform(angler_days = as.numeric(angler_days),
-            year = as.integer(year))
+            year = as.character(year))
 # join
 uci_sport2 <- left_join(uci_sport,sport_effort)
 
@@ -295,7 +330,7 @@ scale_factor <- 2
 
 sport_fig2 <- uci_sport2 %>%
   ggplot() +
-  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity") +
+  geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
   geom_line(aes(x = as.numeric(year), y = angler_days * scale_factor), color = "black", size = 1.05) +
   scale_y_continuous(name = "Sport Harvest", 
                      sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Angler Days)"),
@@ -303,27 +338,25 @@ sport_fig2 <- uci_sport2 %>%
   xlab("") +
   ylab("Sport Harvest") +
   xlim(comm_year_min,comm_year_max) +
+  scale_y_continuous(labels = label_comma()) +
   theme_classic() +
-  ggtitle("Kenai River Sport Fishery")
+  ggtitle("Upper Cook Inlet Freshwater Sport Fisheries")
 sport_fig2
-
-
 
 
 ```
 
 Next:
 
--   find updated data sources for sport fish harvest
--   figure out dual axes to show effort
+-   find commercial effort data
+-   map fig(s) to indicate where data is sourced from
+-   match stack colors to original fig
+-   match stack order to legend order
+-   explanatory text (comm has longest time series, etc)
 
 Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest.  --> might be hard to do becuase the above figures do not include solely kenai fish
 
 
-
-- step 1: recreate fig as is
-- step 2: show proportional sizes of figs in context of comm
-- step 3: show stacked proportion by fishery by year
 
 - place citations/sources for data below each plot
 
