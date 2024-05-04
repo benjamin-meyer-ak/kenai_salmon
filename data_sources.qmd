@@ -285,6 +285,8 @@ pu_fig2
 # match colors
 
 # see how this looks as a faceted plot with effort on top ?
+
+# how does this plot look against sc ak population trend?
 ```
 
 
@@ -343,7 +345,7 @@ sport_fig2 <- uci_sport2 %>%
   ggtitle("Upper Cook Inlet Freshwater Sport Fisheries")
 sport_fig2
 
-
+# y axis for numberf of angler days is missing
 ```
 
 Next:
