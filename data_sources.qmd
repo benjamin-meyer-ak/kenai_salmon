@@ -353,6 +353,8 @@ Next:
 -   match stack colors to original fig
 -   match stack order to legend order
 -   explanatory text (comm has longest time series, etc)
+-   diff colors for fig 1 than any other used
+-   representative pictures of each fishery
 
 Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest.  --> might be hard to do becuase the above figures do not include solely kenai fish
 
