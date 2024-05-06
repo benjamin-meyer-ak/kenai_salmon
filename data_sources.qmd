@@ -92,12 +92,11 @@ comm_year_max <- as.numeric(max(uci_comm$year))
 
 # for some visualization purposes, we want the y-axis to show the scale of the largest harvest category, commercial. Species are aggregated
 # comm_harvest_min <- group_by(year) %>% summarise(total_comm_harvest = sum(total_ct)) # throws error
-comm_harvest_max
+#comm_harvest_max
 
 ```
 
 <br>
-
 
 ## Personal Use Harvest
 
@@ -187,8 +186,6 @@ pu_fig
 
 ```
 
-
-
 <br>
 
 ## Sport Harvest
@@ -248,13 +245,12 @@ Next:
 -   find updated data sources for sport fish harvest
 -   figure out dual axes to show effort
 
-Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest.  --> might be hard to do becuase the above figures do not include solely kenai fish
+Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest. --\> might be hard to do becuase the above figures do not include solely kenai fish
 
-- secondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/
+-   secondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/
 
+-   step 1: recreate fig as is
 
-- step 1: recreate fig as is
-- step 2: show proportional sizes of figs in context of comm
-- step 3: show stacked proportion by fishery by year
+-   step 2: show proportional sizes of figs in context of comm
 
-
+-   step 3: show stacked proportion by fishery by year
