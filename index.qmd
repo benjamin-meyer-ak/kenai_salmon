@@ -1,9 +1,48 @@
-# Preface {.unnumbered}
+# Northern Kenai Peninsula Salmon: Who's Catching What? {.unnumbered}
 
-This is a Quarto book.
+In Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is a centerpiece of the region's food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer, take home a paycheck, or sustain cultural traditions, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+As the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region's user groups has shifted dramatically. Since 1970's, harvest by sport and personal use fisheries have grown from a proportion too small to track to 37% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest salmon for both tourism as well as local consumption.
 
-```{r}
-1 + 1
-```
+The degree to which this shift has affected the region's commercial salmon fishing industry is highly contentious.
+
+
+
+The region is home to several active tribal entities who have stewarded the region's fisheries for millennia, and continue to do so today.
+
+
+
+Along with shifting harvest trends-
+
+
+
+ --> pitch: as harvest trends change and competition intensifies, we need to get user groups to better understand each other. understand value of shared, renewable - yet finite resource. Get BOF to use science in their allocation decisions. transparent info is first step.
+ 
+--> pitch 1: tech report fleshing out visualizations from ADFG report
+--> pitch 2: fish need land too field trips / BSLH signs
+ 
+ --> contacts: ak salmon fellows?
+
+
+
+
+The area sustains several of Alaska’s largest recreational salmon fisheries, major commercial gill-net and personal-use dip-net fisheries, as well as small-scale subsistence and educational fisheries (Begich et al. 2013; Shields and Dupuis 2016).
+
+
+
+
+The region is also home to Alaska's most populous communities, Additionally it is visited by hundreds of thousands of annual visitors also seeking to harvest salmon in growing sport fisheries.
+
+As the region has grown and evolved, the magnitude harvests of these different fisheries
+
+\
+The region's most productive river, the Kenai River, is famous for its large Chinook Salmon *O. tshawytscha*, including a 44-kg (97 lb) world record fish caught in 1985.
+
+Kenai River salmon support s
+
+is Alaska's most populous region, and
+
+However, recent declines in Chinook Salmon returns have prompted fishery closures and exacerbated long-standing conflicts between stake- holders (Loring 2016). These declines, coinciding with state-wide declines in Chinook Salmon returns and body size (ADFG 2013; Lewis et al. 2015), have raised concerns about the resilience of these salmon runs and their dependent fishing communities to rapid environmental change (Loring et al. 2014).
+
+\
+is also home to active fisheries harvesting wild salmon

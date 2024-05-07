@@ -80,24 +80,18 @@ uci_comm <- read.csv(dir) %>%
 comm_year_min <- as.numeric(min(uci_comm$year))
 comm_year_max <- as.numeric(max(uci_comm$year))
 
-<<<<<<< HEAD
+
 # for some visualization purposes, we want the y-axis to show the scale of the largest harvest category, commercial. Species are aggregated
 # comm_harvest_min <- group_by(year) %>% summarise(total_comm_harvest = sum(total_ct)) # throws error
 #comm_harvest_max
-=======
-#################
->>>>>>> 035abfad03e65f915a08ba296ae0255bbd2f12a3
+
 
 ### personal use
 
-<<<<<<< HEAD
-<br>
 
 ## Personal Use Harvest
 
-```{r echo = F}
-=======
->>>>>>> 035abfad03e65f915a08ba296ae0255bbd2f12a3
+
 # read in pre 1996 PU
 dir <- "other/input/harvest_trends/puharvest_pre1996.csv"
 puharvest_pre1996 <- read.csv(dir) %>%
@@ -147,18 +141,14 @@ puharvest_post1996 <- read.csv(dir) %>%
 uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
   mutate(harvest_group = "Personal Use") 
 
-#########
 
-### sport
 
-<<<<<<< HEAD
+
+
 # add secondary axis
 
 
 # suggested alternative: secondary chart below w/ household days
-
-
-
 
 
 # number format on y axis
@@ -167,15 +157,11 @@ uci_pu <- bind_rows(puharvest_pre1996,puharvest_post1996) %>%
 # match colors
 # secondary y-axis
 
-```
 
-<br>
 
 ## Sport Harvest
 
-```{r echo = F}
-=======
->>>>>>> 035abfad03e65f915a08ba296ae0255bbd2f12a3
+
 # read in uci sport fish data
 dir <- "other/input/harvest_trends/sportharvest.csv"
 uci_sport <- read.csv(dir) %>%
@@ -245,6 +231,19 @@ dat %>%
 
 
 
+```
+```{r echo = F}
+# what percentage of the overall UCI harvest is by each fishery?
+dat_pct <- dat %>%
+  group_by(harvest_group,year) %>%
+  summarise(harvest_sum = sum(total_count)) %>%
+  pivot_wider(names_from = harvest_group, values_from = harvest_sum) %>%
+  clean_names() %>%
+  mutate(tot = commercial + personal_use + sport) %>%
+  mutate(commercial_pct = commercial/tot,
+         personal_use_pct = personal_use/tot,
+         sport_pct = sport/tot) %>%
+  mutate(personal_and_sport_pct = personal_use_pct + sport_pct)
 ```
 
 
@@ -374,8 +373,8 @@ sport_fig2 <- uci_sport2 %>%
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
   geom_line(aes(x = as.numeric(year), y = angler_days * scale_factor), color = "black", size = 1.05) +
   scale_y_continuous(name = "Sport Harvest", 
-                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), name="Effort (Angler Days)"),
-                     labels = comma) +
+                     sec.axis = sec_axis(~ ., labels = number_format(scale=1/scale_factor), 
+                                         name="Effort (Angler Days)"), labels = comma) +
   xlab("") +
   ylab("Sport Harvest") +
   xlim(comm_year_min,comm_year_max) +
@@ -399,16 +398,9 @@ Next:
 
 Idea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest ... can visualize remaining escapement in context of harvest. --\> might be hard to do becuase the above figures do not include solely kenai fish
 
-<<<<<<< HEAD
--   secondary axes for effort: maybe? https://johnmackintosh.net/blog/2022-03-13-dual-axis/
-=======
->>>>>>> 035abfad03e65f915a08ba296ae0255bbd2f12a3
 
--   step 1: recreate fig as is
 
-<<<<<<< HEAD
--   step 2: show proportional sizes of figs in context of comm
-=======
+
 - place citations/sources for data below each plot
 
 
@@ -417,6 +409,3 @@ See p 91 in lipka & stumpf 2024, all uci sockeye harvests combined
 plan - draft for sport and pu; send to anna, as for effort data for comm
 
 
->>>>>>> 035abfad03e65f915a08ba296ae0255bbd2f12a3
-
--   step 3: show stacked proportion by fishery by year
