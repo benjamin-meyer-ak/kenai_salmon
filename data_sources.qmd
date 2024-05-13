@@ -25,6 +25,7 @@ library(tidyverse)
 library(janitor)
 library(scales)
 library(magrittr)
+library(gridExtra)
 ```
 
 # Data Sources
@@ -65,16 +66,10 @@ dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
 uci_comm <- read.csv(dir) %>%
   clean_names() %>%
   # remove percentage columns
-  select(-contains(("_2"))) %>%
-  pivot_longer(cols = c("drift",
-                        "essn",
-                        "wssn",
-                        "nsn"), names_to = "fishery", values_to = "count") %>%
-  # consolidate counts from various fisheries
-  group_by(species,year) %>%
-  summarise(total_count = sum(count)) %>%
+  select(-contains(("_2")),-drift,-essn,-wssn,-nsn,-reference,-link,-page) %>%
   mutate(harvest_group = "Commercial") %>%
-  transform(year = as.character(year))
+  transform(year = as.character(year)) %>%
+  rename(total_count = total)
 
 # the commercial harvest time series is the longest, so we will make that the axis extent for the other figures too
 comm_year_min <- as.numeric(min(uci_comm$year))
@@ -265,6 +260,8 @@ comm_fig
 
 
 # need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
+
+# plot v2 with effort on seperate axis when available
 ```
 
 <br>
@@ -272,24 +269,23 @@ comm_fig
 
 ## Personal Use Harvest
 
-
-
 ```{r echo = F}
 
-# PU plot
+# PU plot v1
 pu_fig <- uci_pu %>%
   filter(species != "HouseholdDaysFished") %>%
   ggplot() +
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
-  ylab("Personal Use Harvest") +
+  ylab("Total Salmon Harvest") +
   xlim(comm_year_min,comm_year_max) +
-  theme_classic()
- #pu_fig
+  theme_classic() +
+  theme(legend.position = "none")  
+ pu_fig
 
-# add secondary axis
 
+# PU plot v2: add secondary axis
 
 # 1) get effort data in new column
 uci_pu2 <- uci_pu %>% filter(species == "HouseholdDaysFished") %>%
@@ -298,9 +294,7 @@ colnames(uci_pu2) <- c("year","household_days_fished","harvest_group")
 uci_pu2 <- left_join(uci_pu,uci_pu2) %>%
   filter(species != "HouseholdDaysFished")
 
-
-# 2) plot PU fig v2
-# PU plot
+# PU plot v2
 scale_factor <- 16
 
 pu_fig2 <- uci_pu2 %>%
@@ -318,13 +312,43 @@ pu_fig2 <- uci_pu2 %>%
   ggtitle("Northern Kenai Peninsula Personal Use Salmon Fishery")
 pu_fig2
 
+
+# PU effort vs time
+pu_effort <- uci_pu2 %>%
+  select(-species,-total_count) %>%
+  distinct() %>%
+  ggplot() +
+  geom_line(aes(as.numeric(year),household_days_fished, group = 1), size = 2) +
+  scale_y_continuous(labels = label_comma()) +
+  xlab("") +
+  ylab("Household Days Fished") +
+  xlim(comm_year_min,comm_year_max) +
+  theme_classic() +
+  ggtitle("Upper Cook Inlet\nPersonal Use Salmon Harvest")
+pu_effort
+
+
+# arrange two plots atop
+
+grid.arrange(pu_effort, pu_fig)
+
+
 # capitalize legend
 # reverse stack order
 # match colors
 
+
+
+
 # see how this looks as a faceted plot with effort on top ?
 
 # how does this plot look against sc ak population trend?
+
+# personal use = dipnet + setnet
+
+# pu effort records not available prior to 1996
+
+# break this down also by type /location of PU fishery ...
 ```
 
 
@@ -362,6 +386,7 @@ sport_effort <- read.csv("other/input/harvest_trends/sportharvest_effort.csv") %
   mutate_all(~sub(",","",.)) %>%
   transform(angler_days = as.numeric(angler_days),
             year = as.character(year))
+
 # join
 uci_sport2 <- left_join(uci_sport,sport_effort)
 
@@ -369,6 +394,7 @@ uci_sport2 <- left_join(uci_sport,sport_effort)
 scale_factor <- 2
 
 sport_fig2 <- uci_sport2 %>%
+  filter(species != "angler_days") %>%
   ggplot() +
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species),  stat = "identity", position = position_stack(reverse = T)) +
   geom_line(aes(x = as.numeric(year), y = angler_days * scale_factor), color = "black", size = 1.05) +
@@ -383,7 +409,7 @@ sport_fig2 <- uci_sport2 %>%
   ggtitle("Upper Cook Inlet Freshwater Sport Fisheries")
 sport_fig2
 
-# y axis for numberf of angler days is missing
+# y axis for number of angler days is missing
 ```
 
 Next:
