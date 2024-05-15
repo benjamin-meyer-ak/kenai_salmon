@@ -1,29 +1,23 @@
 # Northern Kenai Peninsula Salmon: Who's Catching What? {.unnumbered}
 
-In Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is a centerpiece of the region's food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer, take home a paycheck, or sustain cultural traditions, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.
+In Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is central to the region's food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer in the personal use fishery, take home a paycheck from commercial fishing, or sustain cultural traditions in customary and additional harvest, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.
 
-As the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region's user groups has shifted dramatically. Since 1970's, combined harvest by sport and personal use fisheries have grown from under 10% prior to 1995 to 44% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest salmon both for local consumption as well as tourism.
-
-The degree to which this shift has affected the region's commercial salmon fishing industry is highly contentious.
+As the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region's distinct user groups has shifted dramatically. Since 1970's, combined harvest by sport and personal use fisheries have grown from under 10% prior to 1995 to 44% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest the region's salmon both for local consumption as well as tourism. The degree to which this shift has affected the region's commercial salmon fishing industry is highly contentious. The region is also home to several active tribal entities who have stewarded the region's fisheries for millennia, and continue to do so today.
 
 
-
-The region is home to several active tribal entities who have stewarded the region's fisheries for millennia, and continue to do so today.
-
+Additional content TKA here
 
 
-Along with shifting harvest trends-
+```{r echo = F, eval = F}
 
-
-
- --> pitch: as harvest trends change and competition intensifies, we need to get user groups to better understand each other. understand value of shared, renewable - yet finite resource. Get BOF to use science in their allocation decisions. transparent info is first step.
+--> pitch: as harvest trends change and competition intensifies, we need to get user groups to better understand each other. understand value of shared, renewable - yet finite resource. Get BOF to use science in their allocation decisions. transparent info is first step.
  
 --> pitch 1: tech report fleshing out visualizations from ADFG report
 --> pitch 2: fish need land too field trips / BSLH signs
  
  --> contacts: ak salmon fellows?
-
-
+ 
+ geography: sport fish = nkpma, comm fish = UCI, PU = kenai, kasilof, fish creek, kasilof gillnet
 
 
 The area sustains several of Alaska’s largest recreational salmon fisheries, major commercial gill-net and personal-use dip-net fisheries, as well as small-scale subsistence and educational fisheries (Begich et al. 2013; Shields and Dupuis 2016).
@@ -46,3 +40,8 @@ However, recent declines in Chinook Salmon returns have prompted fishery closure
 
 \
 is also home to active fisheries harvesting wild salmon
+
+```
+
+
+ 
