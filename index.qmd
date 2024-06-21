@@ -4,9 +4,7 @@ In Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the
 
 As the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region's distinct user groups has shifted dramatically. Since 1970's, combined harvest by sport and personal use fisheries have grown from under 10% prior to 1995 to 44% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest the region's salmon both for local consumption as well as tourism. The degree to which this shift has affected the region's commercial salmon fishing industry is highly contentious. The region is also home to several active tribal entities who have stewarded the region's fisheries for millennia, and continue to do so today.
 
-
 Additional content TKA here
-
 
 ```{r echo = F, eval = F}
 
@@ -42,6 +40,3 @@ However, recent declines in Chinook Salmon returns have prompted fishery closure
 is also home to active fisheries harvesting wild salmon
 
 ```
-
-
- 
