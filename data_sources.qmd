@@ -26,6 +26,7 @@ library(janitor)
 library(scales)
 library(magrittr)
 library(gridExtra)
+library(plotly)
 ```
 
 # Data Sources
@@ -211,9 +212,11 @@ We visualized the total salmon harvest by fishery in the Upper Cook Inlet / Nort
 #| label: fig-harvest-group
 #| fig-cap: "Test test test"
 
+# can this figure be a plotly ?
 
 # horizontal faceted plot
-dat %>%
+ggplotly(
+  dat %>%
   transform(year = as.numeric(year)) %>%
   filter(year < 2023) %>%
   group_by(year,harvest_group) %>%
@@ -224,7 +227,11 @@ dat %>%
   theme_classic() +
   xlab("") +
   ylab("Total Harvest") +
-  ggtitle("Northern Kenai Peninsula / Upper Cook Inlet\nSalmon Harvest 1966-2022 (All Species)") 
+  ggtitle("Northern Kenai Peninsula / Upper Cook Inlet\nSalmon Harvest 1966-2022 (All Species)")
+)
+
+
+
 
 # report/include numbers for educational / traditional use; make point not big enough to plot here
 
@@ -250,7 +257,8 @@ dat_pct <- dat %>%
 
 ```{r echo = F}
 # comm plot
-comm_fig <- uci_comm %>%
+ggplotly(
+  uci_comm %>%
   ggplot() +
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity", position = position_stack(reverse = T)) +
   scale_y_continuous(labels = label_comma()) +
@@ -258,7 +266,8 @@ comm_fig <- uci_comm %>%
   ylab("Commercial Harvest") +
   theme_classic() +
   ggtitle("Upper Cook Inlet Commercial Harvest")
-comm_fig
+)
+
 
 
 # need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
@@ -339,7 +348,7 @@ grid.arrange(pu_effort, pu_fig)
 # match colors
 
 
-
+# plotly does not work for dual axes or dir arrange
 
 # see how this looks as a faceted plot with effort on top ?
 
@@ -405,6 +414,8 @@ sport_fig2 <- uci_sport2 %>%
 sport_fig2
 
 # y axis for number of angler days is missing
+
+# plot as 2 spertae graphs, as above for PU
 ```
 
 Next:
