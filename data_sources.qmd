@@ -29,6 +29,9 @@ library(gridExtra)
 library(plotly)
 ```
 
+NOTE - chaneg data sources to secondary focus; most readers will not want to dig into details of data sources
+
+
 # Data Sources
 
 ```{r echo = F}
