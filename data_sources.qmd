@@ -374,7 +374,7 @@ grid.arrange(pu_effort, pu_fig)
 
 ## Sport Harvest
 
-```{r echo = F}
+```{r echo = F, message = F, warning = F}
 # sport plot
 sport_fig <- uci_sport %>%
   ggplot() +
