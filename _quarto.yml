@@ -3,10 +3,11 @@ project:
   output-dir: docs
 
 book:
-  title: "kenai_salmon_data"
-  author: "Benjamin Meyer"
+  title: "Tangled Nets: The Changing Faces of Northern Kenai Peninsula Salmon Fisheries [DRAFT IN PROGRESS]"
+  author: "Benjamin Meyer, Rivulet Research"
   page-navigation: true
-  date: "3/9/2024"
+  date: "9/19/2024"
+  url: "https://www.benjamin-meyer.net"
   chapters:
     - index.qmd
     - data_sources.qmd
@@ -34,4 +35,6 @@ format:
  #    documentclass: scrreprt
 
 editor: visual
+
+
 

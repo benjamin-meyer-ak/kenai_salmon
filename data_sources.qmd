@@ -26,7 +26,11 @@ library(janitor)
 library(scales)
 library(magrittr)
 library(gridExtra)
+library(plotly)
 ```
+
+NOTE - change this chapter about data sources to secondary focus; most readers will not want to dig into details of data sources...
+
 
 # Data Sources
 
@@ -45,7 +49,7 @@ library(gridExtra)
 
 --\> may be necessary to wipe .bib file to correct author citation formats
 
-Note on data sources for Northern Kenai Peninsula Fisheries Harvest, adapted from [@schoen2017] supplemental materials:
+*Note on data sources for Northern Kenai Peninsula Fisheries Harvest, adapted from [@schoen2017] supplemental materials:*
 
 Harvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area.
 
@@ -209,11 +213,13 @@ We visualized the total salmon harvest by fishery in the Upper Cook Inlet / Nort
 
 ```{r echo = F, message = F, warning = F}
 #| label: fig-harvest-group
-#| fig-cap: "Test test test"
+#| fig-cap: "Northern Kenai Peninsula Salmon Harvest 1966 - 2022, All Species, All Gear"
 
+# can this figure be a plotly ?
 
 # horizontal faceted plot
-dat %>%
+ggplotly(
+  dat %>%
   transform(year = as.numeric(year)) %>%
   filter(year < 2023) %>%
   group_by(year,harvest_group) %>%
@@ -224,7 +230,11 @@ dat %>%
   theme_classic() +
   xlab("") +
   ylab("Total Harvest") +
-  ggtitle("Northern Kenai Peninsula / Upper Cook Inlet\nSalmon Harvest 1966-2022 (All Species)") 
+  ggtitle("Northern Kenai Peninsula Area\nTotal Salmon Harvest 1966-2022 (All Species, All Gear)")
+)
+
+
+
 
 # report/include numbers for educational / traditional use; make point not big enough to plot here
 
@@ -233,6 +243,8 @@ dat %>%
 ```
 
 ```{r echo = F, message = F, include = F}
+#| fig-cap: ""
+
 # what percentage of the overall UCI harvest is by each fishery?
 dat_pct <- dat %>%
   group_by(harvest_group,year) %>%
@@ -249,16 +261,22 @@ dat_pct <- dat %>%
 ## Commercial Harvest
 
 ```{r echo = F}
+
+#| fig-cap: ""
+
+
 # comm plot
-comm_fig <- uci_comm %>%
+ggplotly(
+  uci_comm %>%
   ggplot() +
   geom_bar(aes(x = as.numeric(year), y = total_count, fill = species), stat = "identity", position = position_stack(reverse = T)) +
   scale_y_continuous(labels = label_comma()) +
   xlab("") +
   ylab("Commercial Harvest") +
   theme_classic() +
-  ggtitle("Upper Cook Inlet Commercial Harvest")
-comm_fig
+  ggtitle("Northern Kenai Peninsula Area Salmon, Commercial Harvest 1966 - 2022")
+)
+
 
 
 # need clarification on and source for effort: number of permits fished. where; both setnet and drift?? check against shields and dupuis and find parallel in lipke & stumpf 2024
@@ -270,7 +288,7 @@ comm_fig
 
 ## Personal Use Harvest
 
-```{r echo = F}
+```{r echo = F, message = F, warning = F}
 
 # PU plot v1
 pu_fig <- uci_pu %>%
@@ -339,7 +357,7 @@ grid.arrange(pu_effort, pu_fig)
 # match colors
 
 
-
+# plotly does not work for dual axes or dir arrange
 
 # see how this looks as a faceted plot with effort on top ?
 
@@ -356,7 +374,7 @@ grid.arrange(pu_effort, pu_fig)
 
 ## Sport Harvest
 
-```{r echo = F}
+```{r echo = F, message = F, warning = F}
 # sport plot
 sport_fig <- uci_sport %>%
   ggplot() +
@@ -401,10 +419,12 @@ sport_fig2 <- uci_sport2 %>%
   xlim(comm_year_min,comm_year_max) +
   scale_y_continuous(labels = label_comma()) +
   theme_classic() +
-  ggtitle("Upper Cook Inlet Freshwater Sport Fisheries")
+  ggtitle("Northern Kenai Peninsula Freshwater Sport Fisheries")
 sport_fig2
 
 # y axis for number of angler days is missing
+
+# plot as 2 spertae graphs, as above for PU
 ```
 
 Next:
