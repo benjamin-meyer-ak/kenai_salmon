@@ -2,7 +2,6 @@
 
 # Introduction {.unnumbered}
 
-
 In Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is central to the region's economic base and food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer in the personal use and sport fisheries, take home a paycheck from commercial fishing, or sustain cultural traditions in customary and traditional harvest, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.
 
 As the population has grown and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region's distinct fishery groups has shifted dramatically. We report that **from 1995 to 2022 the combined harvest by sport and personal use fisheries have grown by from under 10% of total salmon harvest to 44% in year 2022.** The shift signals a strong growth in demand for the opportunity to independently harvest the region's salmon both for local, family-scale consumption as well as for tourism purposes.
@@ -12,8 +11,6 @@ The shift in fishery participation has affected local livelihoods and management
 As harvest trends change and competition intensifies among user groups, commercial, sport, personal use, and traditional & customary fishery participants will benefit to better understand each others needs and challenges.
 
 The following report highlights a series of graphic visualizations in Northern Kenai Peninsula salmon harvest trends.
-
-
 
 ```{r echo = F, eval = F}
 
