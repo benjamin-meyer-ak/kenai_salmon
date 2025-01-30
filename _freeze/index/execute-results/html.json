@@ -1,0 +1,15 @@
+{
+  "hash": "a1b7c1b1aa54a6e25b60ca210d7c2bec",
+  "result": {
+    "engine": "knitr",
+    "markdown": "![Dipnets lay stacked behind an unused \"Help Wanted\" sign for the closed east-side commercial set net fishery. In 2024, the Cook Inlet East-side setnet fishery was closed but permit holders were allowed to use dipnets, a gear type not typically associated with commercial fishing](other/input/images/IMG_2552.JPEG){width=\"300\"}\n\n# Introduction {.unnumbered}\n\n\n\n\n\n\n---\nexecute:\n  echo: false\n  freeze: true\ndate: \"2025-01-30\"\nformat:\n  html:\n    code-fold: true\n    code-tools: true\n    code-summary: \"Show the code\"\n---\n\n\n\n\n\n\nIn Alaska's Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face. Wild salmon harvest is central to the area's economic base and food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer in the personal use and sport fisheries, take home a paycheck from commercial fishing, or sustain cultural traditions in customary and traditional harvest, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.\n\nAs the population of southcentral Alaska has grown and economy has evolved in the 21st century, the magnitude of harvest of wild salmon by distinct participant groups has shifted dramatically. We report here that for the northern Kenai Peninsula area, **from 1995 to 2022 the combined harvest by sport and personal use fisheries grew by from under 10% of total salmon harvest to 44% in year 2022.** The shift signals a strong growth in demand for the opportunity to independently harvest the region's salmon both for local, family-scale consumption as well as for tourism purposes.\n\nThe shift in fishery participation has affected local livelihoods and management concerns, benefitting some groups while challenging others. For all groups, managers are challenged to meet escapement goals for low-abundance but high-profile Chinook salmon, whose returns are intermingled among the much more abundant sockeye salmon. Concerns over Chinook bycatch in this mixed-stock fishery are the primary reason stated by regulators that has led to closure of the \"East Side\" commercial set net fishery as well as the Kenai River Chinook sport fishery.\n\nAs harvest trends change and competition intensifies among user groups, commercial, sport, personal use, and traditional & customary fishery participants will benefit to better understand each others needs and challenges.\n\nThe following report highlights a series of graphic visualizations in Northern Kenai Peninsula salmon harvest trends.\n\n\n\n\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

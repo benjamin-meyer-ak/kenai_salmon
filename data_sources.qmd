@@ -29,11 +29,6 @@ library(gridExtra)
 library(plotly)
 ```
 
-NOTE - change this chapter about data sources to secondary focus; most readers will not want to dig into details of data sources...
-
-
-# Data Sources
-
 ```{r echo = F}
 
 
@@ -43,19 +38,29 @@ NOTE - change this chapter about data sources to secondary focus; most readers w
 # overall run trends datasets 1976-2015
 # https://catalog.epscor.alaska.edu/dataset/total-run-sizes-of-chinook-and-sockeye-salmon-in-the-kenai-river-1976-2015
 
+# --\> may be necessary to wipe .bib file to correct author citation formats
+
+# NOTE - change this chapter about data sources to secondary focus; most readers will not want to dig into details of data sources...
+
 ```
+
+We assembled total salmon harvest data from the northern Kenai Peninsula area from 1966 - 2023, organized by fishery sector (commercial, sport, and personal use) and species. Our primary data source was Annual Management Reports from the Alaska Department of Fish and Game, as well as data assembled in [@schoen2017].
+
+Harvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that for this analysis it is not possible to compare the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area (adapted from [@schoen2017]).
 
 ## Geographical Areas
 
---\> may be necessary to wipe .bib file to correct author citation formats
+-   Include a map here with the following features:
+    -   Kenai & Kasilof dipnet fishery locations
+    -   Kenai & Kasilof rivers sportfishing extent & regulated areas
+    -   Northern Kenai Central District drift gill net and east-side set gill net zones
+    -   Other?
 
-*Note on data sources for Northern Kenai Peninsula Fisheries Harvest, adapted from [@schoen2017] supplemental materials:*
-
-Harvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area.
+## Data Aggregation
 
 We aggregated harvest and effort data from the following fisheries:
 
--   Commercial: Central District drift gill net and east-side set gill net [@lipkacolton2024; @shields2017]
+-   Commercial: Central District drift gill net and east-side set gill net [@lipka2024; @shields2016]
 
 -   Recreational: Northern Kenai Peninsula Management Area [@begich2013; @gatesjennyl2024]
 
@@ -63,7 +68,10 @@ We aggregated harvest and effort data from the following fisheries:
 
 <br>
 
-```{r echo = F, include = F}
+```{r, message = F}
+
+#| code-fold: true
+#| code-summary: "Show the code"
 
 # Read in Data
 
