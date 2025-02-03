@@ -1,24 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "kenai_salmon_data",
-    "section": "",
-<<<<<<< HEAD
-    "text": "Northern Kenai Peninsula Salmon: Who’s Catching What?\nIn Alaska’s Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is central to the region’s food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer in the personal use fishery, take home a paycheck from commercial fishing, or sustain cultural traditions in customary and additional harvest, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.\nAs the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region’s distinct user groups has shifted dramatically. Since 1970’s, combined harvest by sport and personal use fisheries have grown from under 10% prior to 1995 to 44% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest the region’s salmon both for local consumption as well as tourism. The degree to which this shift has affected the region’s commercial salmon fishing industry is highly contentious. The region is also home to several active tribal entities who have stewarded the region’s fisheries for millennia, and continue to do so today.\nAdditional content TKA here",
-    "crumbs": [
-      "Northern Kenai Peninsula Salmon: Who's Catching What?"
-    ]
-=======
-    "text": "Northern Kenai Peninsula Salmon: Who’s Catching What?\nIn Alaska’s Northern Kenai Peninsula region, wild salmon fisheries exemplify the high social, economic, and ecological value of wild salmon and the complex changes they face in the Gulf of Alaska region. Wild salmon harvest is central to the region’s food sovereignty, allowing tens of thousands of Alaskans to harvest a sustainable, wild, and local protein. Whether it is to fill the family freezer in the personal use fishery, take home a paycheck from commercial fishing, or sustain cultural traditions in customary and additional harvest, people of southcentral Alaska count on the millions of salmon that return each year to the Kenai and Kasilof rivers.\nAs the population and economy of southcentral Alaska has evolved in the 21st century, the magnitude of harvest of wild salmon by the region’s distinct user groups has shifted dramatically. Since 1970’s, combined harvest by sport and personal use fisheries have grown from under 10% prior to 1995 to 44% in year 2022. The shift signals a strong growth in demand for the opportunity to independently harvest the region’s salmon both for local consumption as well as tourism. The degree to which this shift has affected the region’s commercial salmon fishing industry is highly contentious, frequently producing user conflict. The region is also home to several active tribal entities who have stewarded the region’s fisheries for millennia, and continue to do so today.\nAdditional content TKA here"
->>>>>>> 306e27d8001b77c77b27387f0d8f354b554ee547
-  },
-  {
     "objectID": "data_sources.html",
     "href": "data_sources.html",
     "title": "1  Data Sources",
     "section": "",
-    "text": "2 Data Sources",
+    "text": "1.1 Geographical Areas\nWe assembled total salmon harvest data from the northern Kenai Peninsula area from 1966 - 2023, organized by fishery sector (commercial, sport, and personal use) and species. Our primary data source was Annual Management Reports from the Alaska Department of Fish and Game, as well as data assembled in (Schoen et al. 2017).\nHarvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that for this analysis it is not possible to compare the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area (adapted from (Schoen et al. 2017)).\nFigure 1.1: Upper Cook Inlet Central Disrtrict, commercial drift gillnet statsitical areas. From Lipka and Stumpf 2024 (pg 32).",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
     ]
@@ -27,22 +13,28 @@
     "objectID": "data_sources.html#geographical-areas",
     "href": "data_sources.html#geographical-areas",
     "title": "1  Data Sources",
-    "section": "2.1 Geographical Areas",
-<<<<<<< HEAD
-    "text": "2.1 Geographical Areas\n–&gt; may be necessary to wipe .bib file to correct author citation formats\nNote on data sources for Northern Kenai Peninsula Fisheries Harvest, adapted from (Schoen et al. 2017) supplemental materials:\nHarvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area.\nWe aggregated harvest and effort data from the following fisheries:\n\nCommercial: Central District drift gill net and east-side set gill net (Lipka, Colton and Stumpf, Lucas 2024; Shields and Dupuis 2017)\nRecreational: Northern Kenai Peninsula Management Area (Begich et al. 2013; Gates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M 2024)\nPersonal-use: Kenai River dip net, Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016). ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We allocated this harvest and effort to each known fishery based on the proportions of accurately reported harvest and effort in each year.",
+    "section": "",
+    "text": "Include a map here with the following features:\n\nKenai & Kasilof dipnet fishery locations\nKenai & Kasilof rivers sportfishing extent & regulated areas\nUpper Cook Inlet Central Distric Commercial fishery management areas:\n\nNorthern Kenai Central District drift gill net (Figure 1.1) and east-side set gill net zones",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
     ]
-=======
-    "text": "2.1 Geographical Areas\n–&gt; may be necessary to wipe .bib file to correct author citation formats\nNote on data sources for Northern Kenai Peninsula Fisheries Harvest, adapted from (Schoen et al. 2017) supplemental materials:\nHarvest and effort data are reported differently for the commercial, recreational, and personal-use fisheries in Upper Cook Inlet, such that it is not possible to calculate the harvest and effort of salmon produced specifically by the Kenai or Kasilof Rivers (including their tributaries) by each fishing sector. To make comparisons within a common geographic area, we aggregated harvest and effort data from the northern Kenai Peninsula, ranging from the Kasilof River in the south to Ingram Creek in the north. The Kenai River is the predominant salmon-producing river in this area.\nWe aggregated harvest and effort data from the following fisheries:\n\nCommercial: Central District drift gill net and east-side set gill net (Lipka, Colton and Stumpf, Lucas 2024; Shields and Dupuis 2017)\nRecreational: Northern Kenai Peninsula Management Area (Begich et al. 2013; Gates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M 2024)\nPersonal-use: Kenai River dip net, Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016). ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We allocated this harvest and effort to each known fishery based on the proportions of accurately reported harvest and effort in each year."
->>>>>>> 306e27d8001b77c77b27387f0d8f354b554ee547
+  },
+  {
+    "objectID": "data_sources.html#data-aggregation",
+    "href": "data_sources.html#data-aggregation",
+    "title": "1  Data Sources",
+    "section": "1.2 Data Aggregation",
+    "text": "1.2 Data Aggregation\nWe aggregated harvest and effort data from the following fisheries:\n\nCommercial: Central District drift gill net and east-side set gill net (Lipka and Stumpf 2024; Shields and Dupuis 2016)\nRecreational: Northern Kenai Peninsula Management Area (Begich et al. 2013; Gates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M 2024)\nPersonal-use: Kenai River dip net, Kasilof River dip net, and Kasilof River set net (Fall et al. 2015; Shields and Dupuis 2016). ADF&G also reports harvest and effort for an “unknown” personal-use fishery in Upper Cook Inlet. This harvest and effort was reported on permits on which the fishery was left blank. We allocated this harvest and effort to each known fishery based on the proportions of accurately reported harvest and effort in each year.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
+    ]
   },
   {
     "objectID": "data_sources.html#plots",
     "href": "data_sources.html#plots",
     "title": "1  Data Sources",
-    "section": "2.2 Plots",
-    "text": "2.2 Plots\nWe visualized the total salmon harvest by fishery in the Upper Cook Inlet / Northern Kenai Peninsula Management Area in Figure 2.1.\n\n\n\n\n\n\n\n\nFigure 2.1: Test test test",
+    "section": "1.3 Plots",
+    "text": "1.3 Plots\nWe visualized the total salmon harvest by fishery in the Upper Cook Inlet / Northern Kenai Peninsula Management Area in Figure 1.2.\n\n\n\n\n\n\n\n\nFigure 1.2: Northern Kenai Peninsula Salmon Harvest 1966 - 2022, All Species, All Gear",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
     ]
@@ -51,8 +43,8 @@
     "objectID": "data_sources.html#commercial-harvest",
     "href": "data_sources.html#commercial-harvest",
     "title": "1  Data Sources",
-    "section": "2.3 Commercial Harvest",
-    "text": "2.3 Commercial Harvest",
+    "section": "1.4 Commercial Harvest",
+    "text": "1.4 Commercial Harvest",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
     ]
@@ -61,8 +53,8 @@
     "objectID": "data_sources.html#personal-use-harvest",
     "href": "data_sources.html#personal-use-harvest",
     "title": "1  Data Sources",
-    "section": "2.4 Personal Use Harvest",
-    "text": "2.4 Personal Use Harvest\n\n\nWarning: Removed 61 rows containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\n\n\n\n\nJoining with `by = join_by(year, harvest_group)`\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\nRemoved 61 rows containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\nWarning: Removed 80 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\nWarning: Removed 16 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\nWarning: Removed 16 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\nWarning: Removed 61 rows containing missing values or values outside the scale range\n(`geom_bar()`).",
+    "section": "1.5 Personal Use Harvest",
+    "text": "1.5 Personal Use Harvest",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
     ]
@@ -71,30 +63,10 @@
     "objectID": "data_sources.html#sport-harvest",
     "href": "data_sources.html#sport-harvest",
     "title": "1  Data Sources",
-    "section": "2.5 Sport Harvest",
-    "text": "2.5 Sport Harvest\n\n\nScale for y is already present.\nAdding another scale for y, which will replace the existing scale.\nJoining with `by = join_by(year)`\nScale for y is already present.\nAdding another scale for y, which will replace the existing scale.\n\n\nWarning: Removed 6 rows containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\n\n\n\n\nNext:\n\nfind commercial effort data\nmap fig(s) to indicate where data is sourced from\nmatch stack colors to original fig\nmatch stack order to legend order\nexplanatory text (comm has longest time series, etc)\ndiff colors for fig 1 than any other used\nrepresentative pictures of each fishery\n\nIdea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest … can visualize remaining escapement in context of harvest. –&gt; might be hard to do becuase the above figures do not include solely kenai fish\n\nplace citations/sources for data below each plot\n\nSee p 91 in lipka & stumpf 2024, all uci sockeye harvests combined\nplan - draft for sport and pu; send to anna, as for effort data for comm\n\n\n\n\n\n\nBegich, Robert N, Jason A Pawluk, Jenny L Cope, and Sandee Simons. 2013. “2010-2012 Annual Management Report and 2013 Recreational Fisheries Overview for Northern Kenai Peninsula: Fisheries Under Consideration by the Alaska Board of Fisheries, 2014.” http://146.63.61.200/static/regulations/regprocess/fisheriesboard/pdfs/2013-2014/uci/FMR13-51.pdf.\n\n\nGates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M. 2024. “Sport Fisheries in the Northern Kenai Peninsula Management Area, 2022.” Soldotna, AK.\n\n\nLipka, Colton, and Stumpf, Lucas. 2024. “Upper Cook Inlet Commercial Fisheries Annual Management Report, 2022.” Soldotna, AK.\n\n\nSchoen, Erik R, Mark S Wipfli, E Jamie Trammell, Daniel J Rinella, Angelica L Floyd, Jess Grunblatt, Molly D McCarthy, et al. 2017. “Future of Pacific Salmon in the Face of Environmental Change: Lessons from One of the World’s Remaining Productive Salmon Regions.” Fisheries 42 (10): 538–53. https://doi.org/10.1080/03632415.2017.1374251.\n\n\nShields, Pat, and Aaron Dupuis. 2017. “Upper Cook Inlet Commercial Fisheries Annual Management Report, 2016.” https://www.adfg.alaska.gov/FedAidPDFs/FMR17-05.pdf.",
+    "section": "1.6 Sport Harvest",
+    "text": "1.6 Sport Harvest\n\n\n\n\n\n\n\n\n\nNext:\n\nfind commercial effort data\nmap fig(s) to indicate where data is sourced from\nmatch stack colors to original fig\nmatch stack order to legend order\nexplanatory text (comm has longest time series, etc)\ndiff colors for fig 1 than any other used\nrepresentative pictures of each fishery\n\nIdea for NEW overall fig - stacked bar plot of harvest by fishery (& sub stack by species?) superimposed with total harvest … can visualize remaining escapement in context of harvest. –&gt; might be hard to do becuase the above figures do not include solely kenai fish\n\nplace citations/sources for data below each plot\n\nSee p 91 in lipka & stumpf 2024, all uci sockeye harvests combined\nplan - draft for sport and pu; send to anna, as for effort data for comm\n\n\n\n\n\n\nBegich, Robert N, Jason A Pawluk, Jenny L Cope, and Sandee Simons. 2013. “2010-2012 Annual Management Report and 2013 Recreational Fisheries Overview for Northern Kenai Peninsula: Fisheries Under Consideration by the Alaska Board of Fisheries, 2014.” http://146.63.61.200/static/regulations/regprocess/fisheriesboard/pdfs/2013-2014/uci/FMR13-51.pdf.\n\n\nGates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M. 2024. “Sport Fisheries in the Northern Kenai Peninsula Management Area, 2022.” Soldotna, AK.\n\n\nLipka, Colton, and Lucas Stumpf. 2024. “Upper Cook Inlet Commercial Fisheries Annual Management Report, 2022.” Soldotna, AK.\n\n\nSchoen, Erik R, Mark S Wipfli, E Jamie Trammell, Daniel J Rinella, Angelica L Floyd, Jess Grunblatt, Molly D McCarthy, et al. 2017. “Future of Pacific Salmon in the Face of Environmental Change: Lessons from One of the World’s Remaining Productive Salmon Regions.” Fisheries 42 (10): 538–53. https://doi.org/10.1080/03632415.2017.1374251.\n\n\nShields, Pat, and Aaron Dupuis. 2016. “Upper Cook Inlet Commercial Fisheries Annual Management Report, 2016.” https://www.adfg.alaska.gov/FedAidPDFs/FMR17-05.pdf.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Sources</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Begich, Robert N, Jason A Pawluk, Jenny L Cope, and Sandee Simons. 2013.\n“2010-2012 Annual Management Report and 2013 Recreational\nFisheries Overview for Northern Kenai Peninsula: Fisheries Under\nConsideration by the Alaska Board of Fisheries, 2014.” http://146.63.61.200/static/regulations/regprocess/fisheriesboard/pdfs/2013-2014/uci/FMR13-51.pdf.\n\n\nGates, Jenny L, Hansch, Kayla L, and Hynes, Lauren M. 2024. “Sport\nFisheries in the Northern Kenai Peninsula Management Area, 2022.”\nSoldotna, AK.\n\n\nLipka, Colton, and Stumpf, Lucas. 2024. “Upper Cook Inlet\nCommercial Fisheries Annual Management Report, 2022.” Soldotna,\nAK.\n\n\nSchoen, Erik R, Mark S Wipfli, E Jamie Trammell, Daniel J Rinella,\nAngelica L Floyd, Jess Grunblatt, Molly D McCarthy, et al. 2017.\n“Future of Pacific Salmon in the Face of Environmental Change:\nLessons from One of the World’s Remaining Productive Salmon\nRegions.” Fisheries 42 (10): 538–53. https://doi.org/10.1080/03632415.2017.1374251.\n\n\nShields, Pat, and Aaron Dupuis. 2017. “Upper Cook Inlet Commercial\nFisheries Annual Management Report, 2016.” https://www.adfg.alaska.gov/FedAidPDFs/FMR17-05.pdf.",
-    "crumbs": [
-      "References"
     ]
   }
 ]

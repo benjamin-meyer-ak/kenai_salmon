@@ -53,8 +53,13 @@ Harvest and effort data are reported differently for the commercial, recreationa
 -   Include a map here with the following features:
     -   Kenai & Kasilof dipnet fishery locations
     -   Kenai & Kasilof rivers sportfishing extent & regulated areas
-    -   Northern Kenai Central District drift gill net and east-side set gill net zones
-    -   Other?
+    -   Upper Cook Inlet Central Distric Commercial fishery management areas:
+        -   Northern Kenai Central District drift gill net (@fig-central-gill) and east-side set gill net zones (fig tbd)
+
+```{r fig-central-gill, fig.cap="Upper Cook Inlet Central Disrtrict, commercial drift gillnet statsitical areas. From Lipka and Stumpf 2024 (pg 32)."}
+
+knitr::include_graphics("other/input/images/Central District Map Upper Cook Inlet Commercial Fisheries Annual Management Report 2022.png")
+```
 
 ## Data Aggregation
 
@@ -76,6 +81,8 @@ We aggregated harvest and effort data from the following fisheries:
 # Read in Data
 
 ### commercial
+
+# maybe need to filter out all west side data? did we include this in the 2017 Fisheries figure?! check appendix notes again
 
 # read in comm fish data
 dir <- "other/input/harvest_trends/uci-commercial-salmon-harvest.csv"
