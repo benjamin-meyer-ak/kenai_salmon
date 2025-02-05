@@ -59,6 +59,8 @@ Harvest and effort data are reported differently for the commercial, recreationa
 ```{r fig-central-gill, fig.cap="Upper Cook Inlet Central Disrtrict, commercial drift gillnet statsitical areas. From Lipka and Stumpf 2024 (pg 32)."}
 
 knitr::include_graphics("other/input/images/Central District Map Upper Cook Inlet Commercial Fisheries Annual Management Report 2022.png")
+
+# see p 31 for essn district areas, but snowsw all setnet areas, may need to highlight just areas of interest for this analysis
 ```
 
 ## Data Aggregation
